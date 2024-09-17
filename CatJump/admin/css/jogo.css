@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Gameplay';
+    src: url('../fontes/Gameplay.ttf') format('truetype'); 
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; 
+}
+
+.game-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.city-container {
+    display: flex;
+    width: 600%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    animation: moveCity 30s linear infinite;
+}
+
+.city {
+    flex: 0 0 16.66%; 
+    height: 100vh;
+    object-fit: cover; 
+}
+.cat {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 400px;
+    height: 400px;
+    transition: bottom 0.5s ease-out, background-image 0.3s ease-out;
+}
+
+.cat.jump {
+    animation: jump 1s ease-out;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 150px; 
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    justify-content: center; 
+    align-items: center; 
+    display: flex;
+}
+
+.modal-content {
+    background-color: #E6E6FA;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+.modal-content h2 {
+    font-family: Gameplay;
+    color: #350846;
+    font-size: 16pt;
+}
+
+
+#catName {
+    padding: 10px;
+    font-size: 18px;
+    width: 80%;
+    margin: 10px 0;
+}
+
+.start-button {
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer;
+    display: block;
+    margin: 20px auto; 
+}
+
+.start-button img {
+    width: 130px; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.start-button img:hover {
+    transform: scale(1.1); 
+
+}
+.obstacle {
+    position: absolute;
+    bottom: 20px;
+    left: 100%;
+    width: 140px; 
+    height: 140px; 
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    visibility: hidden; 
+    z-index: 99; 
+}
+
+.game-over {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: bolder;
+    background-color: #E6E6FA; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    visibility: hidden; 
+    z-index: 100;
+    width: 600px;
+    height: auto;
+}
+.game-over h2{
+    font-family: Gameplay;
+    color: #350846;
+    font-size: 25pt;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.restart-image {
+    width: 120px; 
+    height: 50px; 
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.home-image {
+    width: 150px; 
+    height: 50px; 
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.restart-image:hover, .home-image:hover {
+    transform: scale(1.1);
+
+}
+
+#pontuacao {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: #350846;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#pontuacaoFinal {
+    font-size: 20px;
+    color: #350846;
+    margin-top: 20px;
+}
+
+
+.moeda {
+    position: absolute;
+    bottom: 100px; 
+    left: 100%;
+    width: 100px; 
+    height: 100px;
+    background-image: url('../img/moeda.png'); 
+    background-size: cover;
+}
+
+.top-right-buttons {
+    position: fixed;
+    top: 2px;
+    right: 2px;
+    display: flex;
+    gap: 2px;
+}
+
+
+.top-right-buttons .ranking-button{
+    width: 50px; 
+     height: 52px;
+     cursor: pointer; 
+     transition: transform 0.3s ease; 
+ }
+
+.top-right-buttons  .home-button{
+    width: 150px; 
+    height: 52px; 
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.button {
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+
+.top-left-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.top-left-buttons img {
+    width: 50px; 
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.top-left-buttons img:hover {
+    transform: scale(1.1); 
+}

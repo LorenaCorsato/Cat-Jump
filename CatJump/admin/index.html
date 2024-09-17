@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Jump - Home</title>
+    <link rel="icon" type="image/png" href="img/patas.png">
+
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <div class="city-container">
+            <img src="img/city.jpg" alt="City 1" class="city">
+            <img src="img/city2.jpg" alt="City 2" class="city">
+            <img src="img/city3.jpg" alt="City 3" class="city">
+            <img src="img/city.jpg" alt="City 1 Clone" class="city">
+            <img src="img/city2.jpg" alt="City 2 Clone" class="city">
+            <img src="img/city3.jpg" alt="City 3 Clone" class="city">
+        </div>
+
+        <img src="img/cat.gif" alt="Cat" class="cat">
+
+        <div class="title">Cat Jump</div>
+
+        <a href="jogo.html" class="start-button">
+            <img src="img/start.png" alt="Start Game">
+        </a>
+    </div>
+
+
+    <audio id="backgroundMusic" src="sonoplastia/musica.mp3" loop></audio>
+
+    <div class="top-left-buttons">
+        <a id="tocarMusica" title="Pausar música">
+            <img src="img/mudo.png" alt="Tocar" class="play-button">
+        </a>
+        <a id="pausarMusica" title="Tocar música" style="display:none;">
+            <img src="img/Som.png" alt="Pausar" class="pause-button">
+        </a>
+    </div>
+    
+    <div class="top-right-buttons">
+        <a href="#" class="rules-button" id="openRules" title="Veja a Regras do jogo"><img src="img/info.png" alt="Documentação"></a>
+        <a href="ranking.html" title="Veja o Ranking de pontuação"><img src="img/ranking.png" alt="Ranking"></a>
+    </div>
+
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <img src="img/fechar.png" alt="Fechar" class="close" id="closeModal">
+            <h2>Regras do Jogo</h2> 
+            <p>
+            <img src="img/patas.png" style="width: 25px; height: 25px;"> Escolha um bom nome para o seu gato. <br>
+            <img src="img/patas.png" style="width: 25px; height: 25px;"> O objetivo principal do jogo é pular as caixas e coletar moedas. <br>
+            <img src="img/patas.png" style="width: 25px; height: 25px;"> Use a tecla espaço para pular. <br>
+            <img src="img/patas.png" style="width: 25px; height: 25px;"> Se o gato colidir com a caixa o jogo será encerrado. <br>
+            <img src="img/patas.png" style="width: 25px; height: 25px;"> Sua pontuação ficará registrada no Ranking. <br> 
+            </p>
+    
+            <p style="text-align: center; padding-top: 20px;">BOM JOGO!</div>p>
+        </div>
+
+        <div id="customAlert" class="custom-alert">
+            <div class="custom-alert-content">
+                <h2>Cat Jump diz:</h2>
+                <p>Para uma melhor experiência, ative o som do jogo clicando no ícone de som.</p>
+                <button id="closeAlert">OK</button>
+            </div>
+        </div>
+        
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.city-container {
+    display: flex;
+    width: 600%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    animation: moveCity 30s linear infinite;
+}
+
+.city {
+    flex: 0 0 16.66%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+h1 {
+    font-family: 'Gameplay';
+    color: #E6E6FA;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 36px;
+    z-index: 10;
+    position: relative;
+    text-shadow: 3px 3px 6px rgba(85, 17, 99, 0.859);
+
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: rgba(53, 8, 70, 0.9); 
+    position: relative;
+    z-index: 10;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #E6E6FA;
+    font-weight: bolder;
+}
+
+th {
+    background-color: #350846;
+    color: #E6E6FA;
+    font-weight: bold;
+
+}
+
+td {
+    color: #E6E6FA;
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 100px; 
+}
+
+th {
+    background-color: #350846;
+    color: #E6E6FA;
+}
+
+td {
+    color: #E6E6FA;
+}
+
+.return-button {
+    position: absolute;
+    top: 20px; 
+    right: 10px; 
+    z-index: 10;
+}
+
+.return-button img {
+    width: 150px; 
+    height: 52px; 
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.return-button img:hover {
+    transform: scale(1.2);
+}
+
+.delete-button {
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer;
+    background-image: url('../img/fechar.png'); 
+    background-size: cover; 
+    width: 50px; 
+    height: 50px; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    transition: transform 0.3s ease;
+}
+
+.delete-button:hover {
+    transform: scale(1.1); 
+}
+
+#rankingTable tbody tr:first-child td:first-child {
+    background-image: url('../img/trofeu.png');
+    background-size: 35px 35px; 
+    background-repeat: no-repeat; 
+    background-position: left center; 
+    padding-left: 30px;
+    margin-right: 50px;
+
+}
+

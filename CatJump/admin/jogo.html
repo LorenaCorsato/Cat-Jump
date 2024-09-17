@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Jump - Jogo</title>
+    <link rel="icon" type="image/png" href="img/patas.png">
+
+    <link rel="stylesheet" href="css/jogo.css">
+</head>
+<body>
+    <div id="overlay"></div> 
+
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Digite o nome do seu gato</h2>
+            <form id="nameForm">
+                <input type="text" id="catName" placeholder="Nome do gato" minlength="2" required>
+                <button type="submit" class="start-button">
+                    <img src="img/start.png" alt="Começar Jogo">
+                </button>            </form>
+            <p id="errorMessage" style="color:rgb(46, 4, 62); display:none;">O nome deve ter pelo menos 2 letras.</p>
+            <p id="duplicateMessage" style="color: rgb(46, 4, 62); display:none";>O nome do gato já está no ranking! Escolha um nome diferente.</p> <!-- Novo parágrafo para o erro -->
+
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="city-container">
+            <img src="img/city.jpg" alt="City 1" class="city">
+            <img src="img/city2.jpg" alt="City 2" class="city">
+            <img src="img/city3.jpg" alt="City 3" class="city">
+            <img src="img/city.jpg" alt="City 1 Clone" class="city">
+            <img src="img/city2.jpg" alt="City 2 Clone" class="city">
+            <img src="img/city3.jpg" alt="City 3 Clone" class="city">
+        </div>
+
+        <div class="top-right-buttons">
+            <img src="img/ranking.png"  title="Veja o ranking de pontuação!" alt="Ranking" class="button ranking-button">
+            <img src="img/voltar.png" title="Volte para a página inicial." alt="Home" class="button home-button">
+        </div>
+
+        <audio id="backgroundMusic" src="sonoplastia/musica.mp3" preload="auto"></audio>
+
+        <div class="top-left-buttons">
+            <a id="pausarMusica" title="Pausar música">
+                <img src="img/mudo.png" alt="Pausar" class="pause-button">
+            </a>
+            <a id="tocarMusica" title="Tocar música" style="display:none;">
+                <img src="img/som.png" alt="Tocar" class="play-button">
+            </a>
+        </div>
+        
+    
+        <img src="img/cat.gif" alt="Cat" class="cat">
+
+        <img src="img/caixa.png" alt="Caixa" class="obstacle">
+
+        <div class="moeda"></div> 
+
+        <div class="game-over" style="visibility: hidden;">
+            <h2>Game Over</h2>
+            <p id="pontuacaoFinal">Sua pontuação final: 0</p> 
+           
+            <div class="buttons-container">
+                <img src="img/restart.png" alt="Restart" class="restart-image">
+            <img src="img/voltar.png" alt="Home" class="home-image"> 
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jogo.js"></script>
+</body>
+</html>
