@@ -10,8 +10,8 @@ Professor Orientador: Márcio Ferraz<br>
 Integrantes e suas funções:<br>
 
 Lavínia Keiller: Cenários e animações de corrida e pulo do gato em pixel arte.<br>
-Lorena Ribeiro: Desenvolvimento do Jogo em Jquery e Trilha sonora.<br>
-Lyncon Santos: Desenvolvimento do aplicativo de divulgação e documentação.<br>
+Lorena Ribeiro: Desenvolvimento do Jogo em Jquery e e documentação..<br>
+Lyncon Santos: Desenvolvimento do aplicativo de divulgação e trilha sonora.<br>
 
 Link vídeo da gameplay: https://youtu.be/rYOqUGNjOto <br>
 
