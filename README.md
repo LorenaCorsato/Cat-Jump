@@ -13,6 +13,8 @@ Lavínia Keiller: Cenários e animações de corrida e pulo do gato em pixel art
 Lorena Ribeiro: Desenvolvimento do Jogo em Jquery e documentação..<br>
 Lyncon Santos: Desenvolvimento do aplicativo de divulgação e trilha sonora.<br>
 
-Link vídeo da gameplay: https://youtu.be/rYOqUGNjOto <br>
+Link vídeo da gameplay: https://youtu.be/g4WMhZzfE8o <br>
+Link Jogo: https://cat-jump-tsyi.vercel.app/  <br>
 
 obs: este projeto não possui nenhum tipo de lucro, ele tem fim acadêmico.
+
