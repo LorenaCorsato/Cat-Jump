@@ -164,7 +164,7 @@ th:nth-child(3), td:nth-child(3) {
     }
 
     th, td {
-        padding: 20px; /* Mais espaço nas células em telas grandes */
+        padding: 10px; /* Mais espaço nas células em telas grandes */
         font-size: 1rem; /* Texto maior em telas maiores */
     }
 
