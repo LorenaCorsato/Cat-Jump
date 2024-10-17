@@ -90,7 +90,7 @@ $(document).ready(function () {
         function moverCaixas() {
             $('.obstacle').animate({
                 left: '-150px'
-            }, 2000, 'linear', function () {
+            }, 3000, 'linear', function () {
                 $(this).css('left', '100%');
                 moverCaixas();
             });
@@ -111,13 +111,13 @@ $(document).ready(function () {
         
             $('.moeda').animate({
                 left: '-150px'
-            }, 3000, 'linear', function () {
+            }, 3500, 'linear', function () {
                 $(this).css('left', '100%');
                 moverMoedas();
             });
         
             var coletaDetectada = setInterval(function () {
-                var catBottom = parseInt($('.cat').css('bottom'));
+                var catBottom = parseInt($s('.cat').css('bottom'));
                 var moedaLeft = parseInt($('.moeda').css('left'));
         
                 if (moedaLeft > 50 && moedaLeft < 150 && catBottom >= 100) {
@@ -131,7 +131,7 @@ $(document).ready(function () {
         
                     setTimeout(function () {
                         $('.moeda').css('left', '100%').show();
-                    }, 3000);
+                    }, 3500);
                 }
             }, 10);
         }
