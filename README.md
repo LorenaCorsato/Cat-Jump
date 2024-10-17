@@ -1,4 +1,8 @@
 # Cat-Jump
+<img src="CAT JUMP.png">
+
+
+
 Projeto acadêmico - Jogo Jquery <br>
 
 Projeto interdisciplinar das matérias de Programação Web e Programação de Aplicativos Mobile do  Curso técnico integrado com ensino médio de Desenvolvimento de sistemas da unidade escolar Etec Martinho Di Ciero em Itu - SP. <br>
