@@ -40,6 +40,8 @@
             <img src="img/voltar.png" title="Volte para a página inicial." alt="Home" class="button home-button">
         </div>
 
+        <audio id="coinSound" src="sonoplastia/moeda.mp3"></audio>
+        <audio id="gameOverSound" src="sonoplastia/gameOver.mp3"></audio>
         <audio id="backgroundMusic" src="sonoplastia/musica.mp3" preload="auto"></audio>
 
         <div class="top-left-buttons">
@@ -59,7 +61,9 @@
         <div class="moeda"></div> 
 
         <div class="game-over" style="visibility: hidden;">
+            <img src="img/gameOver.png" alt="Game Over" class="game-over-image"> 
             <h2>Game Over</h2>
+
             <p id="pontuacaoFinal">Sua pontuação final: 0</p> 
            
             <div class="buttons-container">

@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var modal = document.getElementById("nameModal");
     var form = document.getElementById("nameForm");
     var catNameInput = document.getElementById("catName");
     var errorMessage = document.getElementById("errorMessage");
-    var duplicateMessage = document.getElementById("duplicateMessage"); 
+    var duplicateMessage = document.getElementById("duplicateMessage");
     var pontuacao = 0;
 
     var backgroundMusic = document.getElementById("backgroundMusic");
@@ -12,22 +12,20 @@ $(document).ready(function() {
 
     backgroundMusic.pause();
 
-    pausarMusicaBtn.addEventListener("click", function() {
-        backgroundMusic.pause(); 
-        pausarMusicaBtn.style.display = "none"; 
-        tocarMusicaBtn.style.display = "block"; 
+    pausarMusicaBtn.addEventListener("click", function () {
+        backgroundMusic.pause();
+        pausarMusicaBtn.style.display = "none";
+        tocarMusicaBtn.style.display = "block";
     });
 
-    tocarMusicaBtn.addEventListener("click", function() {
-        backgroundMusic.play(); 
-        tocarMusicaBtn.style.display = "none"; 
-        pausarMusicaBtn.style.display = "block"; 
+    tocarMusicaBtn.addEventListener("click", function () {
+        backgroundMusic.play();
+        tocarMusicaBtn.style.display = "none";
+        pausarMusicaBtn.style.display = "block";
     });
 
-
-
-    form.onsubmit = function(e) {
-        e.preventDefault(); 
+    form.onsubmit = function (e) {
+        e.preventDefault();
 
         var catName = catNameInput.value.trim();
 
@@ -36,16 +34,16 @@ $(document).ready(function() {
 
         if (catName.length >= 2) {
             let ranking = JSON.parse(localStorage.getItem('ranking')) || [];
-            let nameExists = ranking.some(function(player) {
-                return player.name === catName; 
+            let nameExists = ranking.some(function (player) {
+                return player.name === catName;
             });
 
             if (nameExists) {
                 duplicateMessage.style.display = "block";
             } else {
-                localStorage.setItem("catName", catName); 
+                localStorage.setItem("catName", catName);
                 modal.style.display = "none";
-                iniciarJogo(); 
+                iniciarJogo();
             }
         } else {
             errorMessage.style.display = "block";
@@ -53,41 +51,51 @@ $(document).ready(function() {
     };
 
     function iniciarJogo() {
-        backgroundMusic.play(); 
-        
+        backgroundMusic.play();
+
         function animateCity() {
             $('.city-container').animate({
                 left: '-100%'
-            }, 5000, 'linear', function() {
-                $('.city-container').css('left', '0'); 
-                animateCity(); 
+            }, 5000, 'linear', function () {
+                $('.city-container').css('left', '0');
+                animateCity();
             });
         }
 
-        $(document).on('keydown', function(e) {
-            if (e.key === " ") { 
+        // Função para o gato pular
+        function pularGato() {
+            if (!$('.cat').hasClass('jump')) {
                 $('.cat').addClass('jump');
-                
                 $('.cat').attr('src', 'img/pulo3.gif');
-                
-                setTimeout(function() {
+
+                setTimeout(function () {
                     $('.cat').removeClass('jump');
-                    $('.cat').attr('src', 'img/cat.gif'); 
+                    $('.cat').attr('src', 'img/cat.gif');
                 }, 1000);
             }
-        });
-        
+        }
 
+        // Evento de clique/touch no mobile
+        $(document).on('touchstart', function () {
+            pularGato();
+        });
+
+        // Evento de espaço no teclado para desktop
+        $(document).on('keydown', function (e) {
+            if (e.key === " ") {
+                pularGato();
+            }
+        });
 
         function moverCaixas() {
             $('.obstacle').animate({
                 left: '-150px'
-            }, 2000, 'linear', function() {
-                $(this).css('left', '100%'); 
-                moverCaixas(); 
+            }, 2000, 'linear', function () {
+                $(this).css('left', '100%');
+                moverCaixas();
             });
 
-            var colisaoDetectada = setInterval(function() {
+            var colisaoDetectada = setInterval(function () {
                 var catBottom = parseInt($('.cat').css('bottom'));
                 var obstacleLeft = parseInt($('.obstacle').css('left'));
 
@@ -99,42 +107,53 @@ $(document).ready(function() {
         }
 
         function moverMoedas() {
+            const coinSound = document.getElementById("coinSound"); // Referência ao áudio
+        
             $('.moeda').animate({
                 left: '-150px'
-            }, 3000, 'linear', function() {
-                $(this).css('left', '100%'); 
-                moverMoedas(); 
+            }, 3000, 'linear', function () {
+                $(this).css('left', '100%');
+                moverMoedas();
             });
-
-            coletaDetectada = setInterval(function() {
-                catLeft = parseInt($('.cat').css('left'));
+        
+            var coletaDetectada = setInterval(function () {
                 var catBottom = parseInt($('.cat').css('bottom'));
                 var moedaLeft = parseInt($('.moeda').css('left'));
-
+        
                 if (moedaLeft > 50 && moedaLeft < 150 && catBottom >= 100) {
-                    pontuacao += 10; 
+                    pontuacao += 10;
                     $('#pontuacao').text('Pontuação: ' + pontuacao);
-                    $('.moeda').hide(); 
-
-                    setTimeout(function() {
+                    $('.moeda').hide();
+                    
+                    // Toca o som da moeda
+                    coinSound.currentTime = 0; // Reinicia o áudio
+                    coinSound.play();
+        
+                    setTimeout(function () {
                         $('.moeda').css('left', '100%').show();
-                    }, 2000);
+                    }, 3000);
                 }
             }, 10);
         }
+        
 
         function gameOver() {
-            $('#overlay').css('visibility', 'visible'); 
+            $('#overlay').css('visibility', 'visible');
             $('.game-over').css('visibility', 'visible');
             $('.city-container').stop();
             $('.obstacle').stop();
             $('.moeda').stop();
-            $('#pontuacaoFinal').text('Sua pontuação final: ' + pontuacao); 
+            $('#pontuacaoFinal').text('Sua pontuação final: ' + pontuacao);
+        
+            // Tocar o som de Game Over
+            var gameOverSound = document.getElementById("gameOverSound");
+            gameOverSound.currentTime = 0;
+            gameOverSound.play();
         
             let ranking = JSON.parse(localStorage.getItem('ranking')) || [];
             let catName = localStorage.getItem('catName');
-            
-            let nameExists = ranking.some(function(player) {
+        
+            let nameExists = ranking.some(function (player) {
                 return player.name === catName;
             });
         
@@ -147,26 +166,22 @@ $(document).ready(function() {
                 localStorage.setItem('ranking', JSON.stringify(ranking));
             }
         }
+        
 
         animateCity();
         moverCaixas();
-        moverMoedas(); 
+        moverMoedas();
     }
 
-    $('.restart-image').click(function() {
-        location.reload(); 
+    $('.restart-image').click(function () {
+        location.reload();
     });
 
-    $('.home-image').click(function() {
-        window.location.href = 'index.html'; 
-    });
-
-    $('.home-button').click(function() {
+    $('.home-image, .home-button').click(function () {
         window.location.href = 'index.html';
     });
 
-    $('.ranking-button').click(function() {
+    $('.ranking-button').click(function () {
         window.location.href = 'ranking.html';
     });
 });
-

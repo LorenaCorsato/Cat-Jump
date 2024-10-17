@@ -1,3 +1,4 @@
+/* Estilos Gerais */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -33,24 +34,24 @@ h1 {
     color: #E6E6FA;
     text-align: center;
     margin-top: 40px;
-    font-size: 36px;
+    font-size: 2.25rem; /* Usando rem para melhor escalabilidade */
     z-index: 10;
     position: relative;
     text-shadow: 3px 3px 6px rgba(85, 17, 99, 0.859);
-
 }
 
+/* Tabela */
 table {
-    width: 80%;
+    width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
-    background-color: rgba(53, 8, 70, 0.9); 
+    background-color: rgba(53, 8, 70, 0.9);
     position: relative;
     z-index: 10;
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px; /* Diminuindo o padding para caber melhor no mobile */
     border: 1px solid #E6E6FA;
     font-weight: bolder;
 }
@@ -58,38 +59,36 @@ th, td {
 th {
     background-color: #350846;
     color: #E6E6FA;
-    font-weight: bold;
-
 }
 
 td {
     color: #E6E6FA;
 }
 
+/* Ajustes de Tamanho da Coluna para Ranking */
 th:nth-child(3), td:nth-child(3) {
-    width: 100px; 
+    width: 80px; /* Reduzido para caber melhor em telas menores */
 }
 
-th {
-    background-color: #350846;
-    color: #E6E6FA;
+#rankingTable tbody tr:first-child td:first-child {
+    background-image: url('../img/trofeu.png');
+    background-size: 25px 25px; /* Ajuste para mobile */
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 35px;
 }
 
-td {
-    color: #E6E6FA;
-}
-
+/* Botão de Retorno */
 .return-button {
     position: absolute;
-    top: 20px; 
-    right: 10px; 
+    top: 20px;
+    right: 10px;
     z-index: 10;
 }
 
 .return-button img {
-    width: 150px; 
-    height: 52px; 
-    margin: 0 10px;
+    width: 130px;
+    height: 42px;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -98,30 +97,93 @@ td {
     transform: scale(1.2);
 }
 
+/* Botão de Delete */
 .delete-button {
-    background-color: transparent; 
-    border: none; 
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    background-image: url('../img/fechar.png'); 
-    background-size: cover; 
-    width: 50px; 
-    height: 50px; 
-    background-repeat: no-repeat; 
-    background-position: center; 
+    background-image: url('../img/fechar.png');
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
     transition: transform 0.3s ease;
 }
 
 .delete-button:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
-#rankingTable tbody tr:first-child td:first-child {
-    background-image: url('../img/trofeu.png');
-    background-size: 35px 35px; 
-    background-repeat: no-repeat; 
-    background-position: left center; 
-    padding-left: 30px;
-    margin-right: 50px;
+/* Media Queries para Responsividade */
 
+/* Para telas menores que 768px (mobile) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.75rem; /* Título menor para mobile */
+        margin-top: 20px;
+    }
+
+    table {
+        width: 95%; /* Aumenta o espaço da tabela no mobile */
+    }
+
+    th, td {
+        padding: 8px; /* Menos espaço nas células da tabela */
+        font-size: 0.875rem; /* Tamanho de texto menor */
+    }
+
+    th:nth-child(3), td:nth-child(3) {
+        width: 60px; /* Ajuste ainda mais estreito no mobile */
+    }
+
+    .return-button img {
+        width: 100px;
+        height: 35px;
+    }
+
+    .delete-button {
+        width: 35px;
+        height: 35px;
+    }
+
+    #rankingTable tbody tr:first-child td:first-child {
+        background-size: 20px 20px;
+        padding-left: 25px;
+    }
 }
 
+/* Para telas maiores que 1200px (desktop) */
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 2.5rem; /* Aumenta o título para telas grandes */
+    }
+
+    table {
+        width: 75%; /* Reduz o tamanho da tabela para centralizar melhor */
+    }
+
+    th, td {
+        padding: 20px; /* Mais espaço nas células em telas grandes */
+        font-size: 1rem; /* Texto maior em telas maiores */
+    }
+
+    th:nth-child(3), td:nth-child(3) {
+        width: 120px; /* Mais espaço nas colunas em telas maiores */
+    }
+
+    .return-button img {
+        width: 160px;
+        height: 60px;
+    }
+
+    .delete-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    #rankingTable tbody tr:first-child td:first-child {
+        background-size: 40px 40px;
+        padding-left: 45px;
+    }
+}

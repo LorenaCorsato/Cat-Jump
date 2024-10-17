@@ -9,6 +9,7 @@
     src: url('../fontes/Gameplay.ttf') format('truetype'); 
 }
 
+
 html, body {
     height: 100%;
     overflow: hidden; 
@@ -155,7 +156,7 @@ html, body {
 .game-over h2{
     font-family: Gameplay;
     color: #350846;
-    font-size: 25pt;
+    font-size: 30pt;
 }
 
 .buttons-container {
@@ -266,4 +267,11 @@ html, body {
 
 .top-left-buttons img:hover {
     transform: scale(1.1); 
+}
+.game-over-image {
+    width: 25vw; 
+    height: auto; 
+    max-width: 250px; 
+    margin: 20px auto; 
+    display: block; 
 }
