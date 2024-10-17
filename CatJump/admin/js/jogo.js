@@ -27,6 +27,11 @@ $(document).ready(function () {
     form.onsubmit = function (e) {
         e.preventDefault();
 
+        function detectMobile() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+        
+
         var catName = catNameInput.value.trim();
 
         errorMessage.style.display = "none";
@@ -88,24 +93,28 @@ $(document).ready(function () {
         });
 
         function moverCaixas() {
-            $('.obstacle').animate({
-                left: '-150px'
-            }, 2000, 'linear', function () {
-                $(this).css('left', '100%');
-                moverCaixas();
-            });
-
+            const delayTime = detectMobile() ? 3000 : 1000; // 3 segundos de atraso para mobile, 1 segundo para desktop
+        
+            setTimeout(function () {
+                $('.obstacle').animate({
+                    left: '-150px'
+                }, 2000, 'linear', function () {
+                    $(this).css('left', '100%');
+                    moverCaixas(); // Chama a função recursivamente para mover as caixas continuamente
+                });
+            }, delayTime); // Aplica o atraso antes de mover a caixa
+        
             var colisaoDetectada = setInterval(function () {
                 var catBottom = parseInt($('.cat').css('bottom'));
                 var obstacleLeft = parseInt($('.obstacle').css('left'));
-
+        
                 if (obstacleLeft > 50 && obstacleLeft < 150 && catBottom <= 100) {
                     gameOver();
                     clearInterval(colisaoDetectada);
                 }
             }, 10);
         }
-
+        
         function moverMoedas() {
             const coinSound = document.getElementById("coinSound"); // Referência ao áudio
         
